@@ -19,7 +19,16 @@ def home():
             personas_filtradas.append(partes)
 
     # Crear la tabla HTML
-   
+    tabla_html = """
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+        </tr>
+    """
+
     for persona in personas_filtradas:
         tabla_html += f"""
         <tr>
@@ -31,9 +40,11 @@ def home():
         """
     tabla_html += "</table>"
 
+    # Fecha y hora actual
     actual = datetime.now()
     fecha_formateada = actual.strftime("%d, %B, %Y, %H:%M:%S")
 
+    # Retornar la respuesta completa
     return f'¡Hola, Loja! <br><b>{fecha_formateada}</b><br><br>{tabla_html}'
 
 if __name__ == '__main__':
